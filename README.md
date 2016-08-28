@@ -1,5 +1,5 @@
 # Bus Route
-Micro-service implemented in Spring Boot.
+Micro service implemented in Spring Boot, able to answer whether there is a bus route providing a direct connection between two given stations.
 
 `--routesFile=` is a mandatory command line argument already defined in `service.sh`.
 
