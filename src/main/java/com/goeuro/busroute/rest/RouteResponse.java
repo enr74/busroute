@@ -1,5 +1,7 @@
 package com.goeuro.busroute.rest;
-
+/**
+ * Response bean.
+ */
 public class RouteResponse {
     private int dep_sid;
     private int arr_sid;

@@ -7,12 +7,21 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Verify if a bus route provides a direct connection between two given stations.
+ */
 @Service
 public class RouteService {
 
     @Autowired
     private RouteData routeData;
 
+    /**
+     * Check if two stations are connected by a direct route.
+     * @param depSid
+     * @param arrSid
+     * @return
+     */
     public boolean isDirectBusRoute(final int depSid, final int arrSid) {
         Collection<List<String>> routes = routeData.getRoutes();
         for (List<String> route : routes) {

@@ -15,21 +15,17 @@ public class RouteController {
     @Autowired
     private RouteService routeService;
 
-
+    /**
+     * Endpoint to check if two stations are connected by a direct route.
+     * @param depSid departure station Id.
+     * @param arrSid arrival station Id.
+     * @return
+     */
     @RequestMapping(path = "/api/direct", produces = "application/json")
     @ResponseBody
     RouteResponse direct(@RequestParam(value="dep_sid") final int depSid, @RequestParam(value="arr_sid") final int arrSid  ) {
         boolean isDirect = routeService.isDirectBusRoute(depSid, arrSid);
-        return getRouteResponse(depSid, arrSid, isDirect);
+        return RestHelper.getRouteResponse(depSid, arrSid, isDirect);
     }
-
-    private RouteResponse getRouteResponse(final int depSid, final int arrSid, boolean isDirect) {
-        RouteResponse response = new RouteResponse();
-        response.setDirect_bus_route(isDirect);
-        response.setDep_sid(depSid);
-        response.setArr_sid(arrSid);
-        return response;
-    }
-
 
 }
